@@ -1,36 +1,20 @@
-def extract_domains(emails):
-    domains = set()
-    email_count = {}
-    
-    for email in emails:
-        # جدا کردن دامنه از ایمیل
-        domain = email.split('@')[-1]
-        
-        # اگر این دامنه قبلاً در خروجی ظاهر نشده باشد، اضافه کن
-        if domain not in email_count:
-            domains.add(domain)
+import re
+def extract_domain(email):
+    # Match any characters after the last dot in the domain
+    pattern = r"@([A-Za-z0-9.-]+)\.([A-Za-z0-9.-]+)"
+    match = re.findall(pattern, email)
+    return '.'.join(match[0])
 
-        # افزایش تعداد ایمیل‌های این دامنه
-        email_count[domain] = email_count.get(domain, 0) + 1
 
-    return sorted(domains,reverse=True)
 
-def main():
-    # خواندن تعداد ایمیل‌ها
-    n = int(input())
+n = int(input())
+domains = set()
+for i in range(n):
+    email = input()
+    domain = extract_domain(email)
+    domains.add(domain)
 
-    # خواندن ایمیل‌ها
-    emails = []
-    for _ in range(n):
-        email = input()
-        emails.append(email)
+jeff =sorted(domains, reverse=True)
+for domain in reversed(jeff):
+    print(domain)
 
-    # استخراج دامنه‌ها با ترتیب
-    domains = extract_domains(emails)
-
-    # چاپ دامنه‌ها
-    for domain in reversed(domains):
-        print(domain)
-
-if __name__ == "__main__":
-    main()
