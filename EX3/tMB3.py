@@ -24,7 +24,7 @@ def format_text(input_text):
     formatted_text = ' '.join(formatted_text.split())
 
     # Handle new lines after "n\"
-    formatted_text = formatted_text.replace('n\\', '\n')
+    #formatted_text = formatted_text.replace('n\\', '\n')
 
     # Replace escape sequences
     formatted_text = formatted_text.replace("\\n", "\n")
