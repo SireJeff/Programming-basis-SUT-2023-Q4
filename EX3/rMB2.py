@@ -28,3 +28,35 @@ jeff =sorted(domains, reverse=True)
 for domain in reversed(jeff):
     print(domain)
 
+
+# import re
+
+# def extract_domain(email):
+#     pattern = r"@([A-Za-z0-9.-]+)\.([A-Za-z0-9.-]+)"
+#     match = re.findall(pattern, email)
+#     domain_parts = email.split('@')[-1].split('.')
+    
+#     if len(domain_parts) > 1:
+#         domain = '.'.join(domain_parts[:2])
+#         return domain
+
+#     return '.'.join(match[0])
+
+# def main():
+#     n = int(input())
+#     domains = set()
+
+#     for i in range(n):
+#         email = input() 
+#         if '@' in email:
+#             domain = extract_domain(email)
+#             domains.add(domain)
+
+#     sorted_domains = sorted(domains, reverse=True)
+
+#     for domain in reversed(sorted_domains):
+#         print(domain)
+
+# if __name__ == "__main__":
+#     main()
+

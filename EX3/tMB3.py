@@ -38,3 +38,39 @@ user_input = input()
 # Call the function and print the result
 formatted_text = format_text(user_input)
 print(f"Formatted Text: {formatted_text}")
+
+
+# def remove_extra_hashes(char_list, index):
+#     j = index + 1
+#     while j < len(char_list):
+#         if char_list[j] == '#':
+#             char_list.pop(j)
+#             break
+#         else:
+#             j += 1
+
+# def format_text(input_text):
+#     char_list = list(input_text)
+
+#     i = 0
+#     while i < len(char_list):
+#         if char_list[i] == '@':
+#             remove_extra_hashes(char_list, i)
+#             i += 1
+#         else:
+#             i += 1
+
+#     formatted_text = ''.join(char_list)
+#     formatted_text = ' '.join(formatted_text.split())
+#     formatted_text = formatted_text.replace("\\n", "\n")
+#     formatted_text = formatted_text.replace("\\t", "\t")
+
+#     return formatted_text
+
+# def main():
+#     user_input = input()
+#     formatted_text = format_text(user_input)
+#     print(f"Formatted Text: {formatted_text}")
+
+# if __name__ == "__main__":
+#     main()

@@ -109,3 +109,49 @@ else:
 
  #   result = custom_calculate(operation, numbers)
 #    print(result)
+
+
+##nesw implementation:
+# from functools import reduce
+
+# def custom_operation(numbers, operation):
+#     def custom_gcd(a, b):
+#         while b:
+#             a, b = b, a % b
+#         return a
+
+#     def custom_lcm(a, b):
+#         return a * b // custom_gcd(a, b)
+
+#     if operation == "sum":
+#         return reduce(lambda x, y: x + y, numbers)
+#     elif operation == "average":
+#         return round(sum(numbers) / len(numbers), 2)
+#     elif operation == "lcd":
+#         return reduce(lambda x, y: custom_lcm(x, y), numbers)
+#     elif operation == "gcd":
+#         return reduce(lambda x, y: custom_gcd(x, y), numbers)
+#     elif operation == "min":
+#         return min(numbers)
+#     elif operation == "max":
+#         return max(numbers)
+#     else:
+#         return "Invalid command"
+
+# operation = input().strip()
+# if operation not in ["sum", "average", "lcd", "gcd", "min", "max"]:
+#     print("Invalid command")
+# else:
+#     numbers = []
+#     while True:
+#         try:
+#             num = input().strip()
+#             if num == "end":
+#                 break
+#             numbers.append(int(num))
+#         except ValueError:
+#             print("Invalid command")
+#             continue
+
+#     result = custom_operation(numbers, operation)
+#     print(result)
