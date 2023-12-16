@@ -1,0 +1,6 @@
+Bagher Amir
+670 760
+300 25 210
+A B
+B C
+C B

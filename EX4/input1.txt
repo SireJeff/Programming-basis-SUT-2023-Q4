@@ -1,0 +1,6 @@
+sina ali
+300 24
+1 2 3
+A C
+A C
+C B
