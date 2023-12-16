@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 import re
 
 # Initialize empty lists to store data
@@ -58,7 +59,7 @@ sns.set(style="whitegrid")
 plt.figure(figsize=(12, 6))
 
 # Plot scores over game iterations
-plt.subplot(1, 2, 1)
+plt.subplot(1, 3, 1)
 sns.lineplot(data=df, x='Game Iteration', y='Player1 Score', label='Player1')
 sns.lineplot(data=df, x='Game Iteration', y='Player2 Score', label='Player2')
 plt.title('Player Scores Over Game Iterations')
@@ -66,12 +67,23 @@ plt.xlabel('Game Iteration')
 plt.ylabel('Score')
 
 # Plot health over game iterations
-plt.subplot(1, 2, 2)
+plt.subplot(1, 3, 2)
 sns.lineplot(data=df, x='Game Iteration', y='Player1 Health', label='Player1')
 sns.lineplot(data=df, x='Game Iteration', y='Player2 Health', label='Player2')
 plt.title('Player Health Over Game Iterations')
 plt.xlabel('Game Iteration')
 plt.ylabel('Health')
+
+# Plot cumulative scores
+plt.subplot(1, 3, 3)
+cumulative_player1_scores = np.cumsum(player1_scores)
+cumulative_player2_scores = np.cumsum(player2_scores)
+plt.plot(game_iterations, cumulative_player1_scores, label='Player 1')
+plt.plot(game_iterations, cumulative_player2_scores, label='Player 2')
+plt.xlabel('Game Iteration')
+plt.ylabel('Cumulative Score')
+plt.title('Cumulative Score Tracking Through Iterations')
+plt.legend()
 
 plt.tight_layout()
 plt.show()
