@@ -2,31 +2,47 @@ import os
 import pandas as pd
 import numpy as np
 
+import numpy as np
+
 def calculate_and_print_inverted_matrix(num_matrices, matrix_size, matrices_list):
-    max_det = float('-inf')
-    max_det_indices = None
+    def calculate_det_and_dot_product(matrix1, matrix2):
+        return np.linalg.det(np.dot(matrix1, matrix2))
 
-    for i in range(num_matrices):
-        for j in range(i + 1, num_matrices):
-            det_ij = np.linalg.det(np.dot(matrices_list[i], matrices_list[j]))
-            if det_ij > max_det:
-                max_det = det_ij
-                max_det_indices = (i, j)
+    def find_max_det_indices():
+        max_det = float('-inf')
+        indices = None
 
-    matrix_a_det = np.linalg.det(matrices_list[max_det_indices[0]])
-    matrix_b_det = np.linalg.det(matrices_list[max_det_indices[1]])
+        for i in range(num_matrices):
+            for j in range(i + 1, num_matrices):
+                det_ij = calculate_det_and_dot_product(matrices_list[i], matrices_list[j])
+                if det_ij > max_det:
+                    max_det = det_ij
+                    indices = (i, j)
 
-    if matrix_a_det == matrix_b_det:
-        result_matrix = np.dot(matrices_list[max_det_indices[0]], matrices_list[max_det_indices[1]])
-    elif matrix_a_det > matrix_b_det:
-        result_matrix = np.dot(matrices_list[max_det_indices[0]], matrices_list[max_det_indices[1]])
-    else:
-        result_matrix = np.dot(matrices_list[max_det_indices[1]], matrices_list[max_det_indices[0]])
+        return indices
 
-    inverted_matrix = np.linalg.inv(result_matrix)
+    def calculate_result_matrix(index_a, index_b):
+        det_a = np.linalg.det(matrices_list[index_a])
+        det_b = np.linalg.det(matrices_list[index_b])
+
+        if det_a == det_b:
+            return np.dot(matrices_list[index_a], matrices_list[index_b])
+        elif det_a > det_b:
+            return np.dot(matrices_list[index_a], matrices_list[index_b])
+        else:
+            return np.dot(matrices_list[index_b], matrices_list[index_a])
+
+    def calculate_inverted_matrix(result_matrix):
+        return np.linalg.inv(result_matrix)
+
+    max_det_indices = find_max_det_indices()
+    result_matrix = calculate_result_matrix(*max_det_indices)
+    inverted_matrix = calculate_inverted_matrix(result_matrix)
+
     return "\n".join(" ".join(f"{elem:.3f}" for elem in row) for row in inverted_matrix)
 
-def process_input(content):
+
+def arrangeinput(content):
     num_matrices, matrix_size = map(int, content[0].split())
 
     matrices_list = []
@@ -50,7 +66,7 @@ def main():
         with open(input_path, 'r') as file:
             content = file.read().splitlines()
 
-        result = process_input(content)
+        result = arrangeinput(content)
 
         with open(output_path, 'w') as file:
             file.write(result)
