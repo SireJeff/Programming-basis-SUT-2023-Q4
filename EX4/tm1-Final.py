@@ -2,8 +2,6 @@ import os
 import pandas as pd
 import numpy as np
 
-import numpy as np
-
 def calculate_and_print_inverted_matrix(num_matrices, matrix_size, matrices_list):
     def calculate_det_and_dot_product(matrix1, matrix2):
         return np.linalg.det(np.dot(matrix1, matrix2))
