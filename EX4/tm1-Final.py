@@ -68,6 +68,23 @@ def main():
 
         with open(output_path, 'w') as file:
             file.write(result)
+# def main():
+#     input_file_path = "ifile.txt"  
+#     output_file_path = "ofile.txt" 
 
+#     with open(input_file_path, 'r') as file:
+#         content = file.read().splitlines()
+
+#     num_mats, mat_size = map(int, content[0].split())
+
+#     mats_list = []
+#     for i in range(1, 1 + num_mats * mat_size, mat_size):
+#         matrix = [list(map(int, line.split())) for line in content[i:i + mat_size]]
+#         mats_list.append(np.array(matrix))
+
+#     result = varmatrix(num_mats, mat_size, mats_list)
+
+#     with open(output_file_path, 'w') as file:
+#         file.write(result)
 if __name__ == "__main__":
     main()
