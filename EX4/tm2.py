@@ -1,18 +1,22 @@
 class RoseDictionary:
     def __init__(self):
-        self.dictionary = {}
+        self.entries = []
 
-    def __getitem__(self, key):
-        if key in self.dictionary:
-            return self.dictionary[key]
-        else:
-            raise KeyError('Value was not found and no default value/message was specified.')
+    def __getitem__(self, target_key):
+        for stored_key, value in self.entries:
+            if stored_key == target_key:
+                return value
+        raise KeyError('Value was not found and no default value/message was specified.')
 
-    def __setitem__(self, key, value):
-        self.dictionary[key] = value
+    def __setitem__(self, new_key, new_value):
+        for i, (stored_key, _) in enumerate(self.entries):
+            if stored_key == new_key:
+                self.entries[i] = (new_key, new_value)
+                return
+        self.entries.append((new_key, new_value))
 
     def pop_item(self, raise_error=True, default=None, error_msg='error_msg'):
-        if not self.dictionary:
+        if not self.entries:
             if raise_error:
                 if error_msg:
                     raise KeyError(error_msg)
@@ -21,17 +25,19 @@ class RoseDictionary:
             else:
                 return default
         else:
-            key = list(self.dictionary.keys())[-1]
-            value = self.dictionary.pop(key)
-            return value
+            popped_key, popped_value = self.entries.pop()
+            return popped_value
 
-    def get_item(self, key, raise_error=True, default=None, error_msg='error_msg'):
+    def get_item(self, target_key, raise_error=True, default=None, error_msg='error_msg'):
         if raise_error:
-            return self.__getitem__(key)
-        elif not self.dictionary:
+            return self.__getitem__(target_key)
+        elif not self.entries:
             return default
         else:
-            return self.dictionary.get(key, default)
+            for stored_key, value in self.entries:
+                if stored_key == target_key:
+                    return value
+            return default
 
 
 d = RoseDictionary()
