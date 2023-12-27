@@ -70,10 +70,13 @@ def main():
     while True:
         try:
             command = input().split()
+            if not command:
+                command="jfk"
             commands.append(command)
 
             if command[0] == "exit":
                 break
+            
         except Exception:
             print("invalid command")
     
