@@ -1,0 +1,49 @@
+gameiter=1
+sina -> Score: 1, Health: 292
+ali -> Score: 2, Health: 19
+player1 plays: A:1, A:1, C:3 
+player2 plays: C:3, C:3, B:2 
+winner:player2
+------------------------------------------
+gameiter=2
+ArMaN -> Score: 2, Health: 81
+KoUsHa -> Score: 1, Health: -9
+player1 plays: B:9, C:3, A:10 
+player2 plays: C:3, A:10, C:3 
+winner:player1
+------------------------------------------
+gameiter=3
+Bagher -> Score: 2, Health: 410
+Amir -> Score: 1, Health: 225
+player1 plays: A:300, B:25, C:210 
+player2 plays: B:25, C:210, B:25 
+winner:player1
+------------------------------------------
+gameiter=4
+setti -> Score: 0, Health: -3
+betti -> Score: 2, Health: -2
+player1 plays: A:1, A:1, C:1 
+player2 plays: B:2, C:1, B:2 
+winner:player2
+------------------------------------------
+gameiter=5
+shakila -> Score: 1, Health: -41500
+shakiba -> Score: 2, Health: -41820
+player1 plays: A:5678, C:12090, B:24182 
+player2 plays: C:12090, B:24182, A:5678 
+winner:player2
+------------------------------------------
+gameiter=6
+danial -> Score: 2, Health: 33077
+lainad -> Score: 1, Health: 117867
+player1 plays: B:890, A:1689, C:12234 
+player2 plays: C:12234, B:890, A:1689 
+winner:player1
+------------------------------------------
+gameiter=7
+sina -> Score: 2, Health: 315
+ali -> Score: 1, Health: 4365
+player1 plays: A:45, C:21, B:69 
+player2 plays: C:21, B:69, A:45 
+winner:player1
+------------------------------------------

@@ -27,6 +27,11 @@ class RoseDictionary:
         else:
             popped_key, popped_value = self.entries.pop()
             return popped_value
+            # popped_index = len(self.entries) - 1
+            # popped_key, popped_value = self.entries[popped_index]
+            # self.entries = self.entries[:popped_index]  # Remove the last item
+            # return popped_value
+
 
     def get_item(self, target_key, raise_error=True, default=None, error_msg='error_msg'):
         if raise_error:
