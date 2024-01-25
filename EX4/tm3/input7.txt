@@ -1,6 +1,0 @@
-shakila shakiba
-450 130
-5678 24182 12090
-A C
-C B
-B A
