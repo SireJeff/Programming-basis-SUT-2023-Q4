@@ -1,6 +1,0 @@
-setti betti
-2 1
-1 2 1
-A B
-A C
-C B
